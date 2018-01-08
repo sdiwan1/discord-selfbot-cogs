@@ -118,9 +118,9 @@ SUPPORTED LANGUAGES & their codes:
     'fil': 'Filipino',
     'he': 'Hebrew'
 """
+        tmsg = await ctx.send("Translation mode on")
         self.Trans = True
         self.dest = dest
-        tmsg = await ctx.send("Translation mode on")
         await tmsg.edit(content="")
     @commands.command(pass_context=True)
     async def trans_stop(self, ctx):
