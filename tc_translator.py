@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from googletrans import Translator()
+from googletrans import Translator
 t = Translator()
 class TRANSLATE:
     def __init__(self, bot):
