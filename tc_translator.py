@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import asyncio
 from googletrans import Translator
 t = Translator()
 class TRANSLATE:
