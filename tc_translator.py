@@ -121,7 +121,7 @@ SUPPORTED LANGUAGES & their codes:
     'fil': 'Filipino',
     'he': 'Hebrew'
 """
-        tmsg = await ctx.edit("Translation mode on")
+        tmsg = await ctx.send("Translation mode on")
         self.Trans = True
         self.dest = dest
         await asyncio.sleep(1.7)
@@ -130,7 +130,7 @@ SUPPORTED LANGUAGES & their codes:
     async def trans_stop(self, ctx):
         '''command to turn off translation mode'''
         self.Trans = False
-        tmsg1 = await ctx.edit("Translation mode off")
+        tmsg1 = await ctx.send("Translation mode off")
         await asyncio.sleep(1.7)
         await tmsg1.delete()
     async def on_message(self, message):
