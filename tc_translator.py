@@ -121,6 +121,7 @@ SUPPORTED LANGUAGES & their codes:
     'fil': 'Filipino',
     'he': 'Hebrew'
 """
+        await ctx.message.delete()
         tmsg = await ctx.send("Translation mode on")
         self.Trans = True
         self.dest = dest
