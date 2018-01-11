@@ -3,13 +3,15 @@ from discord.ext import commands
 from googletrans import Translator
 t = Translator()
 class TRANSLATE:
+    """A simple translator that helps you to translate every message you send to specified language. Syntax: <prefix>trans <dest>
+    Type <prefix>help trans for more info and supported languages."""
     def __init__(self, bot):
         self.bot = bot
         self.Trans = None
         self.dest = None
     @commands.command(pass_context=True)
     async def trans(self, ctx, dest):
-        """Use this command for translating every message you send to specified destination language. usage: <prefix>trans <dest(language code)>
+        """Use this command for translating every message you send to specified destination language. usage: <prefix>trans <dest(language name or code)>
 SUPPORTED LANGUAGES & their codes:
     'af': 'afrikaans',
     'sq': 'albanian',
@@ -121,12 +123,13 @@ SUPPORTED LANGUAGES & their codes:
         tmsg = await ctx.send("Translation mode on")
         self.Trans = True
         self.dest = dest
-        await tmsg.edit(content="")
+        await tmsg.delete()
     @commands.command(pass_context=True)
     async def trans_stop(self, ctx):
         '''command to turn off translation mode'''
         self.Trans = False
-        await ctx.send("Translation mode off")
+        tmsg = await ctx.send("Translation mode off")
+        await tmsg.delete()
     async def on_message(self, message):
         if self.Trans:
             if message.author.id == self.bot.user.id:
