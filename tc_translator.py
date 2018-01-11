@@ -12,7 +12,8 @@ class TRANSLATE:
         self.dest = None
     @commands.command(pass_context=True)
     async def trans(self, ctx, dest):
-        """Use this command for translating every message you send to specified destination language. usage: <prefix>trans <dest(language name or code)>
+        """Use this command for translating every message you send to specified destination language.
+        usage: <prefix>trans <dest(language name or code)>
 SUPPORTED LANGUAGES & their codes:
     'af': 'afrikaans',
     'sq': 'albanian',
@@ -136,9 +137,8 @@ SUPPORTED LANGUAGES & their codes:
     async def on_message(self, message):
         if self.Trans:
             if message.author.id == self.bot.user.id:
-                message.delete()
                 ttext = t.translate(message.content, self.dest).text
-                
+                await message.edit(content=ttext)
 def setup(bot):
     bot.add_cog(TRANSLATE(bot))
 
