@@ -128,6 +128,7 @@ SUPPORTED LANGUAGES & their codes:
     @commands.command(pass_context=True)
     async def trans_stop(self, ctx):
         '''command to turn off translation mode'''
+        await ctx.message.delete()
         self.Trans = False
         tmsg1 = await ctx.send("Translation mode off")
     async def on_message(self, message):
