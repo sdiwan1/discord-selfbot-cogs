@@ -136,8 +136,7 @@ SUPPORTED LANGUAGES & their codes:
     async def on_message(self, message):
         if self.Trans:
             if message.author.id == self.bot.user.id:
-                m = message.content()
-                m.delete()
+                message.content.delete()
                 ttext = t.translate(message.content, self.dest).text
                 
 def setup(bot):
