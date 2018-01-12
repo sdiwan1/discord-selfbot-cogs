@@ -121,16 +121,14 @@ SUPPORTED LANGUAGES & their codes:
     'fil': 'Filipino',
     'he': 'Hebrew'
 """
-        await ctx.message.edit(content="Trans mode on")
-        tmsg = await ctx.send("Translation mode on")
+        await ctx.message.edit(content="Translation mode on")
         self.Trans = True
         self.dest = dest
     @commands.command(pass_context=True)
     async def trans_stop(self, ctx):
         '''command to turn off translation mode'''
-        await ctx.message.delete()
         self.Trans = False
-        tmsg1 = await ctx.send("Translation mode off")
+        await ctx.message.edit(content="Translation mode off")
     async def on_message(self, message):
         if self.Trans:
             if message.author.id == self.bot.user.id:
