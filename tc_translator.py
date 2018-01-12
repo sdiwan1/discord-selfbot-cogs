@@ -134,6 +134,7 @@ SUPPORTED LANGUAGES & their codes:
             if message.author.id == self.bot.user.id:
                 ttext = t.translate(message.content, self.dest).text
                 await message.edit(content=ttext)
+                await message.delete()
 def setup(bot):
     bot.add_cog(TRANSLATE(bot))
 
